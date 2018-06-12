@@ -14,17 +14,25 @@ def lecturejsonfic(file):
 	config = json.loads(data)
 	return config
 
+def ecriturejsonfic(file , data):
+	try:
+		with open(file, 'w') as fic:
+	except:
+		print('Erreur dans l ouverture du fichier JSON')
+		exit(1)
+	
+	
 def lecturebinfic(file):
 	with open(file, 'rb') as fic:
 		return fic
-	
-def recupsession(file):	##Prend un fichier binaire et Renvoi un objet
-	recup = pickle.Unpickler(file)
-	return recup.load()
-		
+
 def ecriturebinfic(file):
 	with open(file, 'wb') as fic:
 		return fic
+
+def recupsession(file):	##Prend un fichier binaire et Renvoi un objet
+	recup = pickle.Unpickler(file)
+	return recup.load()
 
 def svgsession(object, fic): ##Prend l'objet et le fichier de sortie
 	ecriturebinfic(fic)
